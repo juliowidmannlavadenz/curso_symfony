@@ -1,0 +1,6 @@
+curso_main_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CursoMainBundle:Default:index }
+curso_main_help:
+    path:     /ayuda/{tema}
+    defaults: { _controller: CursoMainBundle:Default:ayuda }
