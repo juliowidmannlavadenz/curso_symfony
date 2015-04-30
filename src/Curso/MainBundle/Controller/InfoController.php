@@ -14,6 +14,12 @@ class InfoController extends Controller
 
     public function pagina_estaticaAction($pagina)
     {
-        return $this->render("CursoMainBundle:Default:".$pagina.".html.twig", array());
+        if ($pagina=="quienes_somos") {
+            return $this->redirect($this->generateUrl("curso_main_info", array("slug" => "quien")));
+            }if ($pagina=="quien" || $pagina=="donde" ) {
+                return $this->render("CursoMainBundle:Default:" . $pagina . ".html.twig", array());
+            }else{
+                throw $this-> createNotFoundException("Pagina no encontrada");
+    }
     }
 }
