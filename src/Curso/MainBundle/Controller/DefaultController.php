@@ -7,9 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction($name,$edad)
     {
-        return $this->render('CursoMainBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('CursoMainBundle:Default:index.html.twig', array('name' => $name,'edad' => $edad));
     }
 
     public function ayudaAction($tema)

@@ -1,6 +1,9 @@
 curso_main_homepage:
-    path:     /hello/{name}
+    path:     /hello/{name}/{edad}
     defaults: { _controller: CursoMainBundle:Default:index }
 curso_main_help:
     path:     /ayuda/{tema}
     defaults: { _controller: CursoMainBundle:Default:ayuda }
+curso_main_info:
+    path:     /nosotros/{nombre}/{apellidos}/{nacimiento}
+    defaults: { _controller: CursoMainBundle:Info:nosotros, nombre:Julio, apellidos:widmann, nacimiento:arequipa }
