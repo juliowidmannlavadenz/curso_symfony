@@ -4,6 +4,9 @@ curso_main_homepage:
 curso_main_help:
     path:     /ayuda/{tema}
     defaults: { _controller: CursoMainBundle:Default:ayuda }
-curso_main_info:
+curso_main_nosotros:
     path:     /nosotros/{nombre}/{apellidos}/{nacimiento}
     defaults: { _controller: CursoMainBundle:Info:nosotros, nombre:Julio, apellidos:widmann, nacimiento:arequipa }
+curso_main_info:
+    path:     /info/{pagina}
+    defaults: { _controller: CursoMainBundle:Info:pagina_estatica,pagina:quien }

@@ -11,4 +11,9 @@ class InfoController extends Controller
     {
         return new Response("<html><body>Mi página de información propia: ".$nombre.' '."".$apellidos." </body></html>");
     }
+
+    public function pagina_estaticaAction($pagina)
+    {
+        return $this->render("CursoMainBundle:Default:".$pagina.".html.twig", array());
+    }
 }
