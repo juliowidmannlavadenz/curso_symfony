@@ -14,6 +14,13 @@ class InfoController extends Controller
 
     public function pagina_estaticaAction($pagina)
     {
+        /*$response = $this->forward("CursoMainBundle:Info:nosotros", array(
+            "nombre"=>"Julio","apellidos"=>"widmann","nacimiento"=>"arequipa"
+        ));
+        return $response;*/
+
+        //$mailer = $this->get("mailer");
+
         if ($pagina=="quienes_somos") {
             return $this->redirect($this->generateUrl("curso_main_info", array("slug" => "quien")));
             }if ($pagina=="quien" || $pagina=="donde" ) {
