@@ -1,56 +1,94 @@
 <?php
-namespace Curso\MainBundle\Entiy;
+
+namespace Curso\MainBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Producto
  *
+ * @ORM\Table()
  * @ORM\Entity
- *
  */
-
-class Producto {
+class Producto
+{
     /**
-     * @ORM\Column(type="integer")
-     */
-    protected $id;
-    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="string",lenght=100)
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $nombre;
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $precio;
+    private $id;
 
-    public function getId(){
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=100)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="precio", type="integer")
+     */
+    private $precio;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getNombre(){
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Producto
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
         return $this->nombre;
     }
 
-    public function setNombre($nombre){
-        $this->nombre = $nombre;
+    /**
+     * Set precio
+     *
+     * @param integer $precio
+     * @return Producto
+     */
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+
+        return $this;
     }
 
-    public function getPrecio(){
+    /**
+     * Get precio
+     *
+     * @return integer 
+     */
+    public function getPrecio()
+    {
         return $this->precio;
     }
-
-    public function setPrecio($precio){
-        $this->precio = $precio;
-    }
 }
-
-
-
-
-
-
-
-
-
-
