@@ -1,7 +1,16 @@
-{% extends "::layout.html.twig" %}
+{% extends '::layout.html.twig' %}
+
+  {% block cabecero_block %}
+      <img src="{{ asset('bundles/cursomain/images/logo.jpg') }}" width="50px"></img>
+      {% if app.debug == true %}
+          Estamos en el modo de DEPURACION
+      {% else %}
+          Estamos en el modo de PRODUCCION
+      {% endif %}
+  {% endblock %}
 
 {% block ciudades_block %}
-<h2>Ciudades</h2>
+    <h2>Ciudades</h2>
 <ul>
 {% for ciudad in ciudades %}
     <li>
