@@ -3,6 +3,7 @@
 namespace Curso\MainBundle\Controller;
 
 use Curso\MainBundle\Entity\Producto;
+use Curso\MainBundle\Form\ProductoType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,12 +33,16 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $productos = $em-> getRepository('CursoMainBundle:Producto')->findAll();
-        $res = "P R O D U C T O S:<br>";
+        /*$res = "P R O D U C T O S:<br>";
         foreach ($productos as $producto)
         {
             $res .=$producto->getNombre().'  Precio: '.$producto->getPrecio().'<br/>';
         }
-        return new Response($res);
+        return new Response($res);*/
+
+        $em = $this->getDoctrine()->getManager();
+        $ciudades = $em->getRepository('CursoMainBundle:Ciudad')->findAll();
+        return $this->render("CursoMainBundle:Default:productos.html.twig", array("productos"=>$productos,"ciudades"=>$ciudades));
     }
 
     public function getByIdAction($id)
@@ -99,5 +104,20 @@ class ProductController extends Controller
 
     }
 
+    public function nuevoProductoAction()
+    {
+        $producto = new Producto();
+        $producto->setNombre('Campo de texto');
+        $producto->setPrecio(300);
+        $form = $this->createFormBuilder($producto)
+        ->add('nombre','text')
+        ->add('precio','integer')
+        ->add('guardar','submit')
+        ->getForm();
+        return $this->render("CursoMainBundle:Default:formulario.html.twig", array("form"=>$form->createView()));
+
+        /*$form =$this->createForm(new ProductoType());
+        return $this->render("CursoMainBundle:Default:formulario.html.twig", array("form"=>$form->createView()));*/
+    }
 
 }
